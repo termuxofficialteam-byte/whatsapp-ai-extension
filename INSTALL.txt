@@ -1,0 +1,19 @@
+WhatsApp Web AI Assistant v1.8.0
+
+1) Extract ZIP. Load the folder that directly contains manifest.json.
+2) chrome://extensions -> Developer mode on -> remove the old build -> Load unpacked -> select that folder.
+3) Reload web.whatsapp.com.
+4) Open the side panel (toolbar icon). Paste your Gemini API key.
+5) Upload emotion folders in "Open Emotion Dashboard" (happy/, sad/, angry/ ... with tone and emoji per emotion).
+6) Open the chat you want to automate, then tap "AUTO REPLY: OFF" so it shows "ON".
+   From then on, each new incoming message is read, answered in its language with a matching emotion,
+   and sent automatically. Tap again to turn it off.
+
+Notes
+- Only messages that arrive after you turn it ON are answered. Old history is never answered.
+- The app never answers its own messages (tracked by text and by sent-status ticks).
+- Group chats: the reply starts with @number of the sender (number read from WhatsApp's message id, so it works for saved contacts too).
+- The @number is plain text, not WhatsApp's clickable mention, so it looks like a mention but does not ping.
+- Answers come in the language of the latest message. Replies are short; long text is sent only when the model marks it as an announcement.
+- Only one engine runs (content script). Each incoming message is answered once, then there is a short pause before the next reply.
+- Automated sending can violate WhatsApp's terms and may risk your account.

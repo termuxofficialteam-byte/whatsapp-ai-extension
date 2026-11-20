@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "WhatsApp Web AI Assistant",
+  "version": "1.8.0",
+  "description": "Auto language and emotion-matched AI replies for WhatsApp Web, with an emotion library dashboard.",
+  "minimum_chrome_version": "116",
+  "icons": {"16": "logo.png", "32": "logo.png", "48": "logo.png", "128": "logo.png"},
+  "permissions": ["storage", "sidePanel", "tabs", "scripting", "unlimitedStorage"],
+  "host_permissions": [
+    "https://web.whatsapp.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {"service_worker": "background.js"},
+  "action": {"default_title": "Open WhatsApp AI Side Panel"},
+  "side_panel": {"default_path": "sidepanel.html"},
+  "content_scripts": [
+    {"matches": ["https://web.whatsapp.com/*"], "js": ["content.js"], "run_at": "document_idle"}
+  ]
+}

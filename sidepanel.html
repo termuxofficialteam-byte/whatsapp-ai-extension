@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WhatsApp AI Assistant</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header><img src="logo.png" alt=""><div><h1>WhatsApp AI</h1><p>Auto language · Emotion replies</p></div></header>
+  <main>
+    <section class="chat-card">
+      <span class="eyebrow">ACTIVE WHATSAPP CHAT</span>
+      <strong id="chatName">Checking active tab…</strong>
+      <span id="targetInfo" class="chat-hint">Reply target: —</span>
+      <button id="autoBtn" class="primary" type="button" disabled>AUTO REPLY: OFF</button>
+      <span class="chat-hint">ON karne ke baad agla incoming message aate hi reply banega aur khud send ho jayega. Bina click ke.</span>
+    </section>
+    <label>Reply Mode
+      <select id="mode"><option value="normal">Normal Mode</option><option value="business">Business Manager Mode</option></select>
+    </label>
+    <section class="language-card" aria-live="polite">
+      <strong>Automatic Language &amp; Emotion</strong>
+      <span id="languageStatus">Reply incoming message ki language mein hoga.</span>
+      <span id="emotionStatus">Emotion: —</span>
+    </section>
+
+    <button id="openDashboard" type="button">Open Emotion Dashboard</button>
+    <label id="brandWrap" hidden>Brand Name
+      <input id="brand" type="text" maxlength="100" placeholder="Your business name">
+    </label>
+    <section id="businessAssets" class="asset-card" hidden>
+      <strong>Business Product File Library</strong>
+      <p class="asset-note">Files stay in this Chrome profile. Tick only relevant files; selected files go to Gemini when you generate.</p>
+      <label>Upload product files
+        <input id="assetUpload" type="file" multiple accept=".txt,.md,.csv,.pdf,.jpg,.jpeg,.png,.webp">
+      </label>
+      <div id="storageMeter" class="storage-meter">Checking browser storage…</div>
+      <div id="assetList" class="asset-list"></div>
+      <div id="assetEmpty" class="muted">No saved product files yet.</div>
+    </section>
+    <label>Google AI Studio API Key
+      <input id="apiKey" type="password" autocomplete="off" placeholder="Paste your Gemini API key">
+    </label>
+    <label>Gemini Model ID
+      <input id="model" type="text" value="gemini-3.5-flash-lite" spellcheck="false" readonly>
+    </label>
+    <label>Business Context / Notes (.txt)
+      <input id="contextFile" type="file" accept=".txt,text/plain">
+    </label>
+    <div id="contextStatus" class="muted">No context file loaded</div>
+    <div id="status" class="status" role="status">Open web.whatsapp.com and select a chat.</div>
+    <p class="privacy">Chat context, selected files and emotion library are sent to Gemini when a reply is generated. API key is stored in this Chrome profile.</p>
+    <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noreferrer">Get a Google AI Studio API key</a>
+  </main>
+  <script src="emotion-store.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html>
